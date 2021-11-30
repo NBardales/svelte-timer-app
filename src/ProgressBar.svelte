@@ -1,5 +1,10 @@
+<script>
+    export let progress = 0;
+</script>
+
 <style>
     /* PROGRESS BAR STYLING SOURCE: (https://codepen.io/erikyo/pen/zdoOyj) */
+    
     progress {
         position: relative;
 		height: 1rem;
@@ -22,10 +27,10 @@
 
     progress[value]::-webkit-progress-value {
         background-color: mediumturquoise;
-        transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
+        /*transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);*/
     }
 
     
 </style>
 
-<progress id="determinate" max="100" value="10"><span class="sr-only"></span> %</progress>
+<progress max="100" value="{progress}">{progress}%</progress>
