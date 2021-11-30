@@ -1,10 +1,12 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     import ProgressBar from './ProgressBar.svelte';
 
     // Making the countdown timer work
     const totalSeconds = 20;
     let secondsLeft = totalSeconds;
     let isRunning = false;
+    const dispatch = createEventDispatcher();
 
     function startTimer() {
         isRunning = true;
@@ -13,7 +15,8 @@
             if (secondsLeft == 0) {
                 clearInterval(timer);
                 isRunning = false;
-                secondsLeft = 20;
+                secondsLeft = totalSeconds;
+                dispatch('end', 'end timer');
             }
         }, 1000);
     }
@@ -43,14 +46,9 @@
         outline: none;
         cursor: pointer;
     }
-    button[disabled] {
-        background-color: #cecece;
-        color: #888;
-        cursor: not-allowed;
-    }
 </style>
 
-<p>{secondsLeft} seconds left</p>
-<ProgressBar {progress}/>
+<p>seconds left</p>
+<ProgressBar />
 
-<button disabled="{isRunning}" on:click={startTimer} class="start">Start</button>
+<button class="start">Start</button>
