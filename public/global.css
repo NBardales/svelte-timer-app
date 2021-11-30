@@ -1,5 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap');
 
+/*-- GENERAL --*/
 body {
   font-family: 'Lato', sans-serif;
+  font-size: 100%;
+}
+
+.container {
+  padding: 1rem;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+/*-- TYPOGRAPHY --*/
+h1 {
+  text-align: center;
+}
+
+/*-- ELEMENTS --*/
+/* Images */
+img {
+  max-width: 100%;
+}
+
+/*-- HELPERS --*/
+/* Show for screen readers only 
+   (https://webaim.org/techniques/css/invisiblecontent/)
+*/
+.sr-only {
+  position: absolute !important; /* Outside the DOM flow */
+  height: 1px; width: 1px; /* Nearly collapsed */
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
+  clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
 }
