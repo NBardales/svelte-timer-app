@@ -491,6 +491,12 @@ var app = (function () {
     	let timer;
     	let t2;
     	let howto;
+    	let t3;
+    	let footer;
+    	let t4;
+    	let a;
+    	let t5;
+    	let t6;
     	let current;
     	timer = new Timer({});
     	howto = new HowTo({});
@@ -504,7 +510,15 @@ var app = (function () {
     			create_component(timer.$$.fragment);
     			t2 = space();
     			create_component(howto.$$.fragment);
+    			t3 = space();
+    			footer = element("footer");
+    			t4 = text("Coded by ");
+    			a = element("a");
+    			t5 = text(myName);
+    			t6 = text(".");
     			attr(div, "class", "container");
+    			attr(a, "href", website);
+    			attr(footer, "class", "svelte-8uxk2");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -513,6 +527,12 @@ var app = (function () {
     			mount_component(timer, div, null);
     			append(div, t2);
     			mount_component(howto, div, null);
+    			insert(target, t3, anchor);
+    			insert(target, footer, anchor);
+    			append(footer, t4);
+    			append(footer, a);
+    			append(a, t5);
+    			append(footer, t6);
     			current = true;
     		},
     		p: noop,
@@ -531,9 +551,14 @@ var app = (function () {
     			if (detaching) detach(div);
     			destroy_component(timer);
     			destroy_component(howto);
+    			if (detaching) detach(t3);
+    			if (detaching) detach(footer);
     		}
     	};
     }
+
+    const website = 'https://nicolebardales.com';
+    const myName = 'Nicole Bardales';
 
     class App extends SvelteComponent {
     	constructor(options) {
